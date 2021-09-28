@@ -1,0 +1,48 @@
+doctype html
+html(lang='he')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='author' content='Yoav Liberman')
+    title מערכת לניהול סטודנדטים - יואב ליברמן
+    link(rel='stylesheet' href='styles-global.css')
+    link(rel='stylesheet' href='style-index.css')
+  body
+    div.main
+      h1 מטלת גמר קורס תכנות צד שרת
+      form(method = "post" action = "/student" )
+        label(for="toar") תואר: 
+          select(id="toar" name="toar" selected="" /*עבור כל אופציה לבחור בהמשך מהראוטר*/)
+            option(value="all") -- כל התארים --
+            option(value="ba" ) תואר ראשון
+            option(value="ma" ) תואר שני
+            option(value="phd") תואר שלישי
+        label(for="city") עיר:
+          input(type="text" id="city" name="city" value=city)
+        label(for="min_avg") ממוצע ציונים מינימלי: 
+          input(type="number" id="min_avg" name="min_avg" min="0" max="100" value=grade)
+        button(type="submit") סינון 
+      hr
+      h3 סטודנדטים שהתקבלו: 
+    div.table
+      table
+        tr 
+          th ת.ז
+          th שם הסטודנט/ית 
+          th
+          tr
+            //-מערך סטודנדטים בהמשך
+              each student in students 
+              td #{student.id} 
+              td #{student.name}
+            td 
+            form(method="post" /* action="student/delete/"+ student.id onsubmit="return confirm('נא לאשר הפעולה לפני המחיקה?')"*/)
+              button(type="submit") מחיקת סטודנט/ית
+            td
+            form(method="get" /*action="student/update/"+ student.id*/)
+              button(type="submit") עדכון סטודנט/ית
+              tr
+      hr
+    div.button
+      a(href='/student/add') הוספת סטודנט/ית למערכת

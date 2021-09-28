@@ -1,0 +1,45 @@
+doctype html
+html(lang='he')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(name='author' content='Yoav Liberman')
+        title מערכת לניהול סטודנדטים - יואב ליברמן
+        link(rel='stylesheet' href='styles-global.css')
+        link(rel='stylesheet' href='style-update.css')
+body
+    div.main
+        h1 עדכון פרטי סטודנט/ית
+        form(action='/student/update/'+id method="post") 
+            label(for="id") מספר ת.ז:
+                input(type="text" id="id" name="id" value=id readonly)
+            label(for="name") שם:
+                input(type="text" id="name" name="name" value=name readonly)
+            label(for="city") עיר:
+                input(type="text" id="city" name="city" value=city readonly)
+            label(for="toar") תואר:
+                input(id="toar" name="toar" size="3" value=toar readonly)
+
+        h3 רשימת קורסים: 
+    div.table
+      table
+        tr 
+          th קוד קורס
+          th ציון 
+          th
+          tr
+            //-מערך קורסים בהמשך
+              each course in courses 
+              td #{course.courseid} 
+              td #{course.grade}
+            td 
+        h3 הוספת קורס חדש:
+                label(for="courseid") מספר קורס:
+                    input(type="text" id="courseid" name="courseid" value=courseid required)
+                label(for="grade") ציון:
+                    input(type="number" id="grade" name="grade" value=grade required)
+    div.button
+        button(type="submit") הוספה
+    div.return
+        a(href="http://localhost:8080/student") חזרה לדף הבית
