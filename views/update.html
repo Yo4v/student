@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yoav Liberman">
+    <title>מערכת לניהול סטודנדטים - יואב ליברמן</title>
+    <link rel="stylesheet" href="styles-global.css">
+    <link rel="stylesheet" href="style-update.css">
+  </head>
+</html>
+<body>
+  <div class="main">
+    <h1>עדכון פרטי סטודנט/ית</h1>
+    <form action="/student/update/undefined" method="post"> 
+      <label for="id">מספר ת.ז:
+        <input type="text" id="id" name="id" readonly>
+      </label>
+      <label for="name">שם מלא:
+        <input type="text" id="name" name="name" readonly>
+      </label>
+      <label for="city">עיר:
+        <input type="text" id="city" name="city" readonly>
+      </label>
+      <label for="toar">תואר:
+        <input id="toar" name="toar" size="3" readonly>
+      </label>
+    </form>
+    <h3>רשימת קורסים: </h3>
+  </div>
+  <div class="table">
+    <table>
+      <tr> 
+        <th>קוד קורס</th>
+        <th>ציון </th>
+        <th></th>
+        <tr>
+          <td> </td>
+        </tr>
+      </tr>
+      <h3>הוספת קורס חדש:
+        <label for="courseid">מספר קורס:
+          <input type="text" id="courseid" name="courseid" required>
+        </label>
+        <label for="grade">ציון:
+          <input type="number" id="grade" name="grade" required>
+        </label>
+      </h3>
+    </table>
+  </div>
+  <div class="button">
+    <button type="submit">הוספה</button>
+  </div>
+  <div class="return"><a href="http://localhost:8080/student">חזרה לדף הבית</a></div>
+</body>

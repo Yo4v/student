@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yoav Liberman">
+    <title>מערכת לניהול סטודנדטים - יואב ליברמן</title>
+    <link rel="stylesheet" href="styles-global.css">
+    <link rel="stylesheet" href="style-add.css">
+  </head>
+  <body>
+    <div class="main">
+      <h1>הוספת סטודנדטים למערכת
+        <form method="post" action="add">
+          <label for="id">מספר ת.ז: 
+            <input type="text" id="id" name="id" required>
+          </label>
+          <label for="name">שם:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="city">עיר: 
+            <input type="text" id="city" name="city" required>
+          </label>
+          <label for="toar">תואר: 
+            <select id="toar" name="toar" selected="">
+              <option value="all">-- כל התארים --
+                <option value="ba">תואר ראשון</option>
+                <option value="ma">תואר שני</option>
+              </option>
+              <option value="phd">תואר שלישי</option>
+            </select>
+          </label>
+        </form>
+      </h1>
+    </div>
+    <div class="button">
+      <button type="submit">הוספה</button>
+    </div>
+    <div class="return"><a href="http://localhost:8080/student">חזרה לדף הבית</a></div>
+  </body>
+</html>
