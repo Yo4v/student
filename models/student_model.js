@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // יצירת תת-סכמה עבור הקורסים
-var take_course = new mongoose.Schema({
+const take_course = new mongoose.Schema({
   cid: {
     type: String,
     required: true,
@@ -15,11 +15,12 @@ var take_course = new mongoose.Schema({
   },
 });
 
-// יצירת סכמת הסטודנדטים
-var student_schema = new mongoose.Schema(
+// יצירת סכמת הסטודנטים
+const student_schema = new mongoose.Schema(
   {
     id: {
       type: String,
+      minLength: 4,
       maxLength: 9,
       required: true,
     },
@@ -40,6 +41,5 @@ var student_schema = new mongoose.Schema(
   { collection: 'students' }
 );
 
-// יצירה וייבוא של מודל הסטודנדטים
-var student_model = mongoose.model('', student_schema);
-module.exports = student_model;
+// יצירה וייבוא של מודל הסטודנטים
+module.exports = global.conn1.model('', student_schema);

@@ -1,30 +1,21 @@
 doctype html
 html(lang='he')
-  head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    meta(name='author' content='Yoav Liberman')
-    title מערכת לניהול סטודנדטים - יואב ליברמן
-    link(rel='stylesheet' href='styles-global.css')
-    link(rel='stylesheet' href='style-add.css')
-  body
-    div.main
-      h1 הוספת סטודנדטים למערכת
+   include head
+   body
+      div.main
+         h2 הוספת סטודנטי/ת למערכת
          form(method = "post" action = "add")
-            label(for="id") מספר ת.ז: 
-               input(type="text" id="id" name="id" value=id required)
+            label(for="id") מספר ת.ז:  
+               input(type="text" id="id" name="id" minlength="4" maxlength="9" value=id required)
             label(for="name") שם:
-            input(type="text" id="name" name="name" value=name required)
+               input(type="text" id="name" name="name" value=name required)
             label(for="city") עיר: 
                input(type="text" id="city" name="city" value=city required)
             label(for="toar") תואר: 
-                select(id="toar" name="toar" selected="" /*עבור כל אופציה לבחור בהמשך מהראוטר*/)
-                    option(value="all") -- כל התארים --
-                     option(value="ba" ) תואר ראשון
-                     option(value="ma" ) תואר שני
-                    option(value="phd") תואר שלישי
-    div.button
-            button(type="submit") הוספה
-    div.return
-            a(href="http://localhost:8080/student") חזרה לדף הבית
+               select(id="toar" name="toar" required)
+                  option(value="ba" selected=sug_toar['ba']) תואר ראשון
+                  option(value="ma" selected=sug_toar['ma']) תואר שני
+                  option(value="phd" selected=sug_toar['phd']) דוקטור
+            button(id="button" type="submit") הוספת סטודנט/ית
+      a(id="button" class='return' href="/student") חזרה לדף הבית
+   include footer
