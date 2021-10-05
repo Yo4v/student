@@ -1,0 +1,233 @@
+[{
+  "_id": {
+    "$oid": "615ac7de4e8677a99841a81a"
+  },
+  "id": "12345678",
+  "name": "yoavl",
+  "city": "PT",
+  "toar": "ba",
+  "courses": [
+    {
+      "cid": "12",
+      "grade": 100,
+      "_id": {
+        "$oid": "615ac9a44e8677a99841a8b2"
+      }
+    },
+    {
+      "cid": "13",
+      "grade": 90,
+      "_id": {
+        "$oid": "615ac9a94e8677a99841a8b8"
+      }
+    },
+    {
+      "cid": "14",
+      "grade": 95,
+      "_id": {
+        "$oid": "615ac9ae4e8677a99841a8bf"
+      }
+    }
+  ],
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "615ac7f34e8677a99841a81e"
+  },
+  "id": "01010101",
+  "name": "test",
+  "city": "TA",
+  "toar": "ma",
+  "courses": [
+    {
+      "cid": "44",
+      "grade": 88,
+      "_id": {
+        "$oid": "615ac9c14e8677a99841a8cd"
+      }
+    },
+    {
+      "cid": "55",
+      "grade": 79,
+      "_id": {
+        "$oid": "615ac9c94e8677a99841a8d3"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "615ac86f4e8677a99841a827"
+  },
+  "id": "3333333",
+  "name": "gaben",
+  "city": "JS",
+  "toar": "ba",
+  "courses": [
+    {
+      "cid": "33333",
+      "grade": 69,
+      "_id": {
+        "$oid": "615ac9dd4e8677a99841a8e8"
+      }
+    },
+    {
+      "cid": "5555",
+      "grade": 96,
+      "_id": {
+        "$oid": "615aca784e8677a99841aa03"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "615ac8894e8677a99841a82b"
+  },
+  "id": "42691337",
+  "name": "zucc",
+  "city": "PA",
+  "toar": "ba",
+  "courses": [
+    {
+      "cid": "2004",
+      "grade": 82,
+      "_id": {
+        "$oid": "615ac9ec4e8677a99841a8f9"
+      }
+    },
+    {
+      "cid": "1478",
+      "grade": 89,
+      "_id": {
+        "$oid": "615aca8d4e8677a99841aa2e"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "615ac8a04e8677a99841a82f"
+  },
+  "id": "13141516",
+  "name": "tcook",
+  "city": "NY",
+  "toar": "ma",
+  "courses": [
+    {
+      "cid": "18956",
+      "grade": 87,
+      "_id": {
+        "$oid": "615aca014e8677a99841a90b"
+      }
+    },
+    {
+      "cid": "16727",
+      "grade": 92,
+      "_id": {
+        "$oid": "615aca6a4e8677a99841a9e9"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "615ac8d74e8677a99841a850"
+  },
+  "id": "1812420",
+  "name": "johndoe",
+  "city": "ayy",
+  "toar": "phd",
+  "courses": [
+    {
+      "cid": "8583",
+      "grade": 75,
+      "_id": {
+        "$oid": "615aca154e8677a99841a92e"
+      }
+    },
+    {
+      "cid": "25161",
+      "grade": 82,
+      "_id": {
+        "$oid": "615acaa44e8677a99841aa63"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "615ac9034e8677a99841a854"
+  },
+  "id": "987654321",
+  "name": "testy",
+  "city": "PT",
+  "toar": "phd",
+  "courses": [
+    {
+      "cid": "7427",
+      "grade": 65,
+      "_id": {
+        "$oid": "615aca324e8677a99841a96b"
+      }
+    },
+    {
+      "cid": "36367",
+      "grade": 63,
+      "_id": {
+        "$oid": "615acab64e8677a99841aa8a"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "615ac9394e8677a99841a872"
+  },
+  "id": "3632772",
+  "name": "plonit almonit",
+  "city": "TA",
+  "toar": "phd",
+  "courses": [
+    {
+      "cid": "18583",
+      "grade": 85,
+      "_id": {
+        "$oid": "615aca3f4e8677a99841a984"
+      }
+    },
+    {
+      "cid": "13617",
+      "grade": 72,
+      "_id": {
+        "$oid": "615acac64e8677a99841aaad"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "615ac9834e8677a99841a895"
+  },
+  "id": "25267367",
+  "name": "tester",
+  "city": "NY",
+  "toar": "ma",
+  "courses": [
+    {
+      "cid": "4738",
+      "grade": 55,
+      "_id": {
+        "$oid": "615aca4a4e8677a99841a99a"
+      }
+    },
+    {
+      "cid": "85832",
+      "grade": 76,
+      "_id": {
+        "$oid": "615acad24e8677a99841aacc"
+      }
+    }
+  ],
+  "__v": 2
+}]

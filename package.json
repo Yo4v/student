@@ -1,7 +1,7 @@
 {
   "name": "student",
   "version": "1.0.0",
-  "description": "",
+  "description": "Student management system",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,8 +11,11 @@
   "author": "Yoav Liberman",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "alert": "^5.0.10",
+    "dayjs": "^1.10.7",
     "express": "^4.17.1",
-    "mongoose": "^6.0.7"
-  }
+    "mongoose": "^6.0.7",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {}
 }
