@@ -1,37 +1,40 @@
 doctype html
 html(lang='he')
   include head
-body
-  h2 דף הבית
-  div.main
-    form(method = "post" action = "/student" )
-      label(for="toar") תואר : 
-        select(id="toar" name="toar" selected="")
-          option(value="all") -- כל התארים --
-          option(value="ba" selected=sug_toar['ba']) תואר ראשון
-          option(value="ma" selected=sug_toar['ma']) תואר שני
-          option(value="phd"  selected=sug_toar['phd']) דוקטור
-      label(for="city") עיר:
-        input(type="text" id="city" name="city" value=city)
-      label(for="avg") ממוצע ציונים מינימלי: 
-        input(type="number" id="avg" name="avg" min="0" max="100" value=grade)
-      button(id="button" type="submit") סינון
-    hr
-    table
-      caption סטודנטים:
-      tr 
-        th ת.ז
-        th שם הסטודנט/ית 
-        th(colspan="2") פעולות לביצוע
-        tr    
-          each student in students
-            td #{student.id}
-            td #{student.name}
-            td(colspan="2")
-              form(method="post" action="student/delete/"+ student.id onsubmit="return confirm('נא לאשר את הפעולה על מנת למחוק את הסטודנט/ית מהמערכת!')")
-                button(class="delete" id="button" type="submit") מחיקת סטודנט/ית
-              form(method="get" action="student/update/"+ student.id)
-                button(id="button" type="submit") עדכון סטודנט/ית
-                tr
-  a(id="button" class="new" href='/student/add') הוספת סטודנט/ית למערכת
+  body
+    h2 דף הבית
+    div.main
+      form(method = "post" action = "/student")
+        label(for="toar") תואר: 
+          select(id="toar" name="toar" selected="")
+            option(value="all") -- כל התארים --
+            option(value="ba" selected=sug_toar['ba']) תואר ראשון
+            option(value="ma" selected=sug_toar['ma']) תואר שני
+            option(value="phd"  selected=sug_toar['phd']) דוקטור
+        label(for="city") עיר:
+          input(type="text" id="city" name="city" value=city)
+        label(for="avg") ממוצע ציונים מינימלי: 
+          input(type="number" id="avg" name="avg" min="0" max="100" value=grade)
+        button(id="button" type="submit") סינון
+      hr
+      -if (students.length === 0) 
+        p לא נמצאו סטודנטים במערכת 😔
+      -else
+        table
+          caption סטודנטים:
+          tr 
+            th מס' ת.ז.
+            th שם הסטודנט
+            th(colspan="2") פעולות לביצוע
+            tr    
+              each student in students
+                td #{student.id}
+                td #{student.name}
+                td(colspan="2")
+                  form(method="post" action="student/delete/"+ student.id onsubmit="return confirm('נא לאשר את הפעולה על מנת למחוק את הסטודנט מהמערכת!')")
+                    button(class="delete" id="button" type="submit") מחיקת סטודנט
+                  form(method="get" action="student/update/"+ student.id)
+                    button(id="button" type="submit") עדכון סטודנט
+                    tr
+    a(id="button" class="new" href='/student/add') הוספת סטודנט למערכת
   include footer
