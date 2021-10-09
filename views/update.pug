@@ -1,38 +1,44 @@
 doctype html
 html(lang='he')
     include head
-body
-    div.main
-        h2 עדכון פרטי סטודנט/ית:
-            form(action='/student/update/'+id method="post") 
-                input(type="hidden" name="action" value=updatestudent)
-                label(for="id") מספר ת.ז:
-                    input(type="text" id="id" name="id" value=id readonly)
-                label(for="name") שם:
-                    input(type="text" id="name" name="name" value=name)
-                label(for="city") עיר:
-                    input(type="text" id="city" name="city" value=city)
-                label(for="toar") תואר:
-                    input(type="text" id="toar" name="toar" value=toar)
-                button(id="button" type="submit") עדכון סטודנט/ית
-            hr
-            table
-                caption קורסים  
-                    tr
-                        th קוד קורס
-                        th ציון סופי
-                        tr
-                            each course in courses
-                                td #{course.cid} 
-                                td #{course.grade}
+    body
+        div.main
+            h2 עדכון פרטי סטודנט:
+                form(action='/student/update/'+id method="post") 
+                    input(type="hidden" name="action" value="updatestudent")
+                    label(for="id") מספר ת.ז:
+                        input(type="text" id="id" name="id" value=id readonly)
+                    label(for="name") שם:
+                        input(type="text" id="name" name="name" value=name)
+                    label(for="city") עיר:
+                        input(type="text" id="city" name="city" value=city)
+                    label(for="toar") תואר: 
+                        select(id="toar" name="toar" required)
+                            option(value="ba" selected=toar['ba']) תואר ראשון
+                            option(value="ma" selected=toar['ma']) תואר שני
+                            option(value="phd" selected=toar['phd']) דוקטור
+                    button(id="button" type="submit") עדכון סטודנט
+                hr
+                -if (courses.length === 0) 
+                    p לא נמצאו קורסים המשוייכים לסטודנט במערכת 😔
+                -else
+                    table
+                        caption קורסים  
+                            tr
+                                th קוד קורס
+                                th ציון סופי
                                 tr
-        h2 הוספת קורס חדש:
-            form(action='/student/update/'+id method="post")
-                input(type="hidden" name="action" value=addcourse)
-                label(for="cid") קוד קורס:
-                    input(type="number" id="cid" name="cid" value=cid required)
-                label(for="grade") ציון:
-                    input(type="number" id="grade" name="grade" min="0" max="100" value=grade required)
-                button(id="button" type="submit") הוספת קורס
-    a(id="button" class='return' href="/student") חזרה לדף הבית
+                                    each course in courses
+                                        td #{course.cid} 
+                                        td #{course.grade}
+                                        tr
+            h2 הוספת קורס חדש:
+                form(action='/student/update/'+id method="post")
+                    input(type="hidden" name="action" value="addcourse")
+                    label(for="cid") קוד קורס:
+                        input(type="number" id="cid" name="cid" value=cid required)
+                    label(for="grade") ציון:
+                        input(type="number" id="grade" name="grade" min="0" max="100" value=grade required)
+                    button(id="button" type="submit") הוספת קורס
+        a(id="button" class='return' href="/student") חזרה לדף הבית
     include footer

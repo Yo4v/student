@@ -3,7 +3,7 @@ html(lang='he')
    include head
    body
       div.main
-         h2 הוספת סטודנטי/ת למערכת
+         h2 הוספת סטודנט למערכת
          form(method = "post" action = "add")
             label(for="id") מספר ת.ז:  
                input(type="text" id="id" name="id" minlength="4" maxlength="9" value=id required)
@@ -16,6 +16,6 @@ html(lang='he')
                   option(value="ba" selected=sug_toar['ba']) תואר ראשון
                   option(value="ma" selected=sug_toar['ma']) תואר שני
                   option(value="phd" selected=sug_toar['phd']) דוקטור
-            button(id="button" type="submit") הוספת סטודנט/ית
+            button(id="button" type="submit") הוספת סטודנט
       a(id="button" class='return' href="/student") חזרה לדף הבית
    include footer
