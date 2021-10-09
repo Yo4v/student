@@ -26,10 +26,15 @@ studentRoute.post('/add', (req, res) => {
   addstudent.save((err, newstudent) => {
     let error = null;
     if (err) {
+<<<<<<< Updated upstream
       error = err.message;
       res.json('FAIL');
       alert('הוספת הסטודנט למערכת נתקלה בשגיאה');
       console.log('Could not save student', err.message);
+=======
+      alert('הוספת הסטודנט למערכת נתקלה בשגיאה');
+      return res.json('FAIL');
+>>>>>>> Stashed changes
     }
 
     // פעולה רצוייה בהתאם למצב הריצה של היישום
@@ -184,8 +189,8 @@ studentRoute.post('/update/:id', async (req, res) => {
       }
     } catch (err) {
       if (global.runmode === 'JSON') {
-        res.json('FAIL');
         alert('JSON לא ניתן לעדכן סטודנט בפורמט');
+        return res.json('FAIL');
       } else {
         error = err.message;
         res.render('update.pug', {
@@ -225,8 +230,8 @@ studentRoute.post('/update/:id', async (req, res) => {
       }
     } catch (err) {
       if (global.runmode === 'JSON') {
-        res.json('FAIL');
         alert('JSON לא ניתן להוסיף קורס בפורמט');
+        return res.json('FAIL');
       } else {
         error = err.message;
         res.render('update.pug', {
