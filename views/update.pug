@@ -12,11 +12,12 @@ html(lang='he')
                         input(type="text" id="name" name="name" value=name)
                     label(for="city") עיר:
                         input(type="text" id="city" name="city" value=city)
-                    label(for="toar") תואר: 
-                        select(id="toar" name="toar" required)
-                            option(value="ba" selected=toar['ba']) תואר ראשון
-                            option(value="ma" selected=toar['ma']) תואר שני
-                            option(value="phd" selected=toar['phd']) דוקטור
+                    -const toars = ['ba', 'ma', 'phd']
+                    label(for="toar") תואר (קיצור):
+                        //-ba - תואר ראשון, ma - תואר שני, phd - דוקטור 
+                        select(id="toar" name="toar")
+                            each degree in toars
+                                option(value=degree selected=(degree==toar ? 'selected' : false)) #{degree}
                     button(id="button" type="submit") עדכון סטודנט
                 hr
                 -if (courses.length === 0) 
