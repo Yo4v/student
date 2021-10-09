@@ -25,10 +25,10 @@ global.conn1 = mongoose.createConnection('mongodb://localhost/academy', {
   useUnifiedTopology: true,
 });
 global.conn1.on('open', () => {
-  console.log('\x1b[32mConnected to MongoDB - academy');
+  console.log('\x1b[1;32mConnected to MongoDB - academy');
 });
 global.conn1.on('error', () => {
-  console.log('\x1b[31mError connecting to the server/db (academy)');
+  console.log('\x1b[1;31mError connecting to the server/db (academy)');
 });
 
 //  יצירת מופע של מודל המונגוז בשביל התחברות למסד של מסמכי הלוג (וכן חיווי המצב בטרמינל)
@@ -37,10 +37,10 @@ global.conn2 = mongoose.createConnection('mongodb://localhost/academylog', {
   useUnifiedTopology: true,
 });
 global.conn2.on('open', () => {
-  console.log('\x1b[32mConnected to MongoDB - academylog');
+  console.log('\x1b[1;32mConnected to MongoDB - academylog');
 });
 global.conn2.on('error', () => {
-  console.log('\x1b[31mError connecting to the server/db (academylog)');
+  console.log('\x1b[1;31mError connecting to the server/db (academylog)');
 });
 
 // פונקציית ביניים אסינכרונית לשם ביצוע פעולת הלוג
@@ -50,7 +50,7 @@ const my_log = async (req, res, next) => {
   let path = req.path;
   let runmode = global.runmode;
   let newlog = new LogModel({ method, path, runmode });
-  console.log(`\x1b[0mLogging data in progress: ${newlog}`);
+  console.log(`\x1b[1;33mLogging data in progress: ${newlog}\x1b[0m`);
   newlog.save();
   await my_log;
   next();
@@ -64,7 +64,7 @@ app.use('/student', studentRoute);
 // התחלת הקשבה בעזרת מודל האקספרס
 app.listen(port, () => {
   console.log(
-    `\x1b[36mServer started at http://localhost:${port}/student in ${global.runmode} Mode`
+    `\x1b[1;36mServer started at http://localhost:${port}/student in ${global.runmode} Mode`
   );
 });
 
@@ -74,7 +74,7 @@ app.use((req, res) => {
 });
 
 // סגירת היישום
-process.on('SIGINT', function () {
-  console.log('\x1b[35mBye, bye! 👋\x1b[0m');
+process.on('SIGINT', () => {
+  console.log('\x1b[1;35mBye, bye! 👋\x1b[0m');
   process.exit();
 });
