@@ -24,28 +24,23 @@ studentRoute.post('/add', (req, res) => {
   ];
   sug_toar[toar] = true;
   addstudent.save((err, newstudent) => {
-    let error = null;
     if (err) {
-      error = err.message;
       res.json('FAIL');
       alert('הוספת הסטודנט למערכת נתקלה בשגיאה');
-      console.log('Could not save student', err.message);
     }
 
-    // פעולה רצוייה בהתאם למצב הריצה של היישום
+// פעולה רצוייה בהתאם למצב הריצה של היישום
     if (global.runmode === 'JSON') {
       res.setHeader('Content-Type', 'application/json');
       res.json(JSON.stringify(newstudent));
       alert('JSON פרטי הסטודנט החדש בפורמט');
     } else {
       alert('הוספת הסטודנט למערכת בוצעה בהצלחה');
-      console.log(`Student added successfully: ${newstudent}`);
       res.render('add.pug', {
         id: s_id,
         name: s_name,
         city: s_city,
         sug_toar: sug_toar,
-        error,
       });
     }
   });
@@ -110,12 +105,6 @@ studentRoute.post('/', (req, res) => {
         res.json(JSON.stringify(filter));
         alert('JSON הסטודנטים שמתאימים לסינון בפורמט');
       } else {
-        console.log(
-          'The students who meet the',
-          req.body,
-          'criteria are:',
-          students
-        );
         res.render('index.pug', {
           students: students,
           sug_toar: sug_toar,
@@ -163,6 +152,7 @@ studentRoute.post('/update/:id', async (req, res) => {
           $set: {
             name: req.body.name.trim(),
             city: req.body.city.trim(),
+            toar: req.body.toar,
           },
         },
         { new: true }
@@ -187,7 +177,6 @@ studentRoute.post('/update/:id', async (req, res) => {
         res.json('FAIL');
         alert('JSON לא ניתן לעדכן סטודנט בפורמט');
       } else {
-        error = err.message;
         res.render('update.pug', {
           id: student.id,
           name: student.name,
@@ -228,7 +217,6 @@ studentRoute.post('/update/:id', async (req, res) => {
         res.json('FAIL');
         alert('JSON לא ניתן להוסיף קורס בפורמט');
       } else {
-        error = err.message;
         res.render('update.pug', {
           id: student.id,
           name: student.name,
@@ -254,7 +242,6 @@ studentRoute.post('/delete/:id', (req, res) => {
         alert('JSON הסטודנט נמחק מהמערכת בפורמט');
       } else {
         alert('הסטודנט נמחק מהמערכת בהצלחה');
-        console.log(`Student ID ${req.params.id} deleted successfully`);
         res.redirect('/student');
       }
     } else {
@@ -268,5 +255,6 @@ studentRoute.post('/delete/:id', (req, res) => {
   });
 });
 
+//  יצירת התווכה ליישום וכן ייצוא נתב הסטודנטים
 studentRoute.use('/student', studentRoute);
 module.exports = studentRoute;
